@@ -10,6 +10,7 @@ const IndexPage = () => (
 
     <p>
       <Link to="/functions/guid">GUID</Link> <br />
+      <Link to="/functions/base64encode">Base 64 Encode</Link> <br />
     </p>
   </Layout>
 )
