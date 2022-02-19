@@ -35,7 +35,7 @@ const IndexPage = () => {
           ref={input}
           rows={5}
         ></textarea>
-        2<button ref={button}>Encode String</button>
+        <button ref={button}>Encode String</button>
         <textarea
           readOnly
           placeholder="encoded string"
