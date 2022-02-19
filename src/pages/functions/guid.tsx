@@ -34,17 +34,25 @@ const IndexPage = () => {
     <Layout>
       <Seo title="Create GUID" />
 
-      <p>Creating a new GUID</p>
-
       <Page>
-        <input type="text" readOnly value={guid}></input>
+        <h2>Create New GUID</h2>
+
+        <input
+          aria-label="GUID Result"
+          type="text"
+          readOnly
+          value={guid}
+        ></input>
 
         <button ref={button}>New</button>
 
         <Code>
           {`
-const result = window.btoa("input string");
-`}
+function buildGuid() {
+  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+  );
+}`}
         </Code>
       </Page>
     </Layout>

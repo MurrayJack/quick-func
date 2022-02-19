@@ -11,9 +11,11 @@ const IndexPage = () => {
 
   React.useEffect(() => {
     button.current.addEventListener("click", () => {
-      result.current.value = window.btoa(input?.current?.value)
-      result.current.focus()
-      result.current.select()
+      if (input?.current?.value) {
+        result.current.value = window.btoa(input?.current?.value)
+        result.current.focus()
+        result.current.select()
+      }
     })
   }, [])
 
@@ -22,7 +24,7 @@ const IndexPage = () => {
       <Seo title="Base64 Encode" description="Encode a string into base64" />
 
       <Page>
-        <h1>Base64 Encode</h1>
+        <h2>Base64 Encode</h2>
 
         <p>Encode a string into Base 64</p>
 
@@ -44,11 +46,8 @@ const IndexPage = () => {
 
         <Code>
           {`
-function buildGuid() {
-  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-  );
-}`}
+const result = window.btoa("input string");
+`}
         </Code>
       </Page>
     </Layout>
