@@ -613,7 +613,13 @@ button {
   background-color: #e85a4f;
   color: white;
   border: none;
-  padding: 0.8em
+  padding: 0.8em;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(90%);
 }
 
 input {
@@ -627,11 +633,13 @@ pre {
 }
 
 header {
-  background-color: #e85a4f;
+  /* background-color: #e85a4f; */
+  border-bottom: 1px solid #e85a4f;
 }
 
 a {
-  color: #86c232
+  color: #e85a4f;
+  text-transform: capitalize;
 }
 
 textarea {

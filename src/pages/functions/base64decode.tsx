@@ -13,7 +13,7 @@ const IndexPage = () => {
     button.current.addEventListener("click", () => {
       try {
         if (input?.current?.value) {
-          result.current.value = window.btoa(input?.current?.value)
+          result.current.value = window.atob(input?.current?.value)
           result.current.focus()
           result.current.select()
         }
@@ -25,27 +25,31 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <Seo title="Base64 Encode" description="Encode a string into base64" />
+      <Seo title="Base64 Decode" />
 
       <Page>
-        <h2>Base64 Encode</h2>
+        <h2>Base64 Decode</h2>
+
         <textarea
-          placeholder="Enter a string to encode"
+          placeholder="Enter a string to decode"
           style={{ resize: "none" }}
           ref={input}
           rows={5}
         ></textarea>
-        2<button ref={button}>Encode String</button>
+
+        <button ref={button}>Decode String</button>
+
         <textarea
           readOnly
-          placeholder="encoded string"
+          placeholder="decoded string"
           style={{ resize: "none" }}
           ref={result}
           rows={5}
         ></textarea>
+
         <Code>
           {`
-const result = window.btoa("input string");
+const result = window.atob("base64");
 `}
         </Code>
       </Page>
