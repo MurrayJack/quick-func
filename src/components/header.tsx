@@ -2,7 +2,12 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-const Header = ({ siteTitle }) => (
+type HeaderProps = {
+  caption: string
+  amount: number
+}
+
+const Header = ({ caption, amount }: HeaderProps) => (
   <header
     style={{
       marginBottom: `1.45rem`,
@@ -23,7 +28,7 @@ const Header = ({ siteTitle }) => (
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          {caption} - {amount}
         </Link>
       </h1>
     </div>
